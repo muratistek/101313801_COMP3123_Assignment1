@@ -9,6 +9,10 @@
   ],
   "routes": [
     {
+      "src": "/",
+      "dest": "/routes/employee.js"
+    },
+    {
       "src": "/api/emp",
       "dest": "/routes/employee.js"
     },
