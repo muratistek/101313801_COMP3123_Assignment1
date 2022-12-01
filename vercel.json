@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "name": "assignment1",
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/emp",
+      "dest": "/routes/employee.js"
+    },
+    {
+      "src": "/api/user",
+      "dest": "/routes/users.js"
+    }
+  ]
+}
