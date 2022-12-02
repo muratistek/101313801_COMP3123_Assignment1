@@ -11,6 +11,11 @@ const DB_URL = "mongodb+srv://murat96:123456murka@cluster0.okt8nyq.mongodb.net/c
 
 app.use(express.json())
 app.use(express.urlencoded())
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "101313801-comp-3123-assignment1.vercel.app");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 // Connecting to the mongoDB database
 mongoose.connect(DB_URL, {
