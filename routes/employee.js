@@ -26,6 +26,7 @@ routes.post("/employees", async (req, res) => {
   try {
     const newEmployee = new EmployeeModel(req.body)
     const employee = await newEmployee.save()
+    res.header("Access-Control-Allow-Origin", "*");
     res.status(201).send(employee)
   }
   catch (error) {
