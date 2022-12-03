@@ -16,6 +16,8 @@ routes.post("/signup", async (req, res) => {
   try {
     const newUser = new UserModel(req.body)
     const user = await newUser.save()
+    // Prevent CORS policy error
+    res.header("Access-Control-Allow-Origin", "*");
     res.status(201).send(user)
   }
   catch (error) {
@@ -41,6 +43,8 @@ routes.post("/login", async (req, res) => {
 
     // Checking if we have one matching record 
     if (usernameCheck != null) {
+      // Prevent CORS policy error
+      res.header("Access-Control-Allow-Origin", "*");
       res.status(200).send({
         status: true,
         username: req.body.username,
@@ -48,6 +52,8 @@ routes.post("/login", async (req, res) => {
       })
     }
     else if (emailCheck != null) {
+      // Prevent CORS policy error
+      res.header("Access-Control-Allow-Origin", "*");
       res.status(200).send({
         status: true,
         email: req.body.email,

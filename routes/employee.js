@@ -26,6 +26,7 @@ routes.post("/employees", async (req, res) => {
   try {
     const newEmployee = new EmployeeModel(req.body)
     const employee = await newEmployee.save()
+    // Prevent CORS policy error
     res.header("Access-Control-Allow-Origin", "*");
     res.status(201).send(employee)
   }
@@ -71,6 +72,8 @@ routes.put("/employees/:eid", async (req, res) => {
     }
     else {
       const newEmployee = await updatedEmployee.save()
+      // Prevent CORS policy error
+      res.header("Access-Control-Allow-Origin", "*");
       res.status(200).send(newEmployee)
     }
   }
@@ -89,6 +92,8 @@ routes.delete("/employees", async (req, res) => {
       res.status(400).send({ message: "Such Employee ID does not exist" })
     }
     else {
+      // Prevent CORS policy error
+      res.header("Access-Control-Allow-Origin", "*");
       res.status(204).send(deletedEmployee)
     }
   }
