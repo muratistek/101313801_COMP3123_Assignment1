@@ -12,13 +12,7 @@ const DB_URL = "mongodb+srv://murat96:123456murka@cluster0.okt8nyq.mongodb.net/c
 
 app.use(express.json())
 app.use(express.urlencoded())
-app.use(cors({
-  origin: "*",
-  methods: ['GET', 'POST', 'PATCH', 'PUT', 'DELETE', 'OPTIONS'],
-  maxAge: 86400,
-  credentials: true,
-  optionSuccessStatus: 200
-}))
+app.use(cors())
 
 
 // Connecting to the mongoDB database
